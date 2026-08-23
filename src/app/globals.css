@@ -58,7 +58,15 @@ body {
   font-family: var(--font-family-base);
   color: var(--color-text);
   background-color: var(--color-background);
-  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure bottom nav doesn't cover content on mobile */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom));
+  }
 }
 
 a {

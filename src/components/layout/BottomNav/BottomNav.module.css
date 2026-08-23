@@ -1,0 +1,75 @@
+.bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-bottom: env(safe-area-inset-bottom);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* Hide on desktop */
+@media (min-width: 768px) {
+  .bottomNav {
+    display: none;
+  }
+}
+
+.navContent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 64px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: var(--color-muted);
+  text-decoration: none;
+  flex: 1;
+  height: 100%;
+  transition: color 0.2s ease;
+}
+
+.iconWrapper {
+  transition: transform 0.2s ease;
+}
+
+.label {
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+.active {
+  color: var(--color-primary);
+}
+
+.active .iconWrapper {
+  transform: translateY(-2px);
+}
+
+.whatsappItem {
+  color: #25D366; /* WhatsApp brand color */
+}
+
+.whatsappItem .iconWrapper {
+  background: rgba(37, 211, 102, 0.1);
+  padding: 6px;
+  border-radius: 50%;
+  margin-top: -12px; /* Popping out slightly */
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+}
+
+.whatsappItem:hover .iconWrapper {
+  transform: scale(1.1);
+}

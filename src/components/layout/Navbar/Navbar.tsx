@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { siteConfig } from '@/config/site';
 import { Button } from '@/components/ui/Button/Button';
@@ -62,14 +63,13 @@ export const Navbar = () => {
         <div className={`container ${styles.navContainer}`}>
           {/* Logo */}
           <Link href="/" className={styles.logo}>
-            <img
+            <Image
               src="/images/logo.png"
               alt={siteConfig.name}
+              width={200}
+              height={75}
+              priority
               className={styles.logoImage}
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-                e.currentTarget.parentElement?.classList.add(styles.textFallback);
-              }}
             />
             <span className={styles.fallbackText}>{siteConfig.name}</span>
           </Link>

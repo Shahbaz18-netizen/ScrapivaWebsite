@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { siteConfig } from '@/config/site';
 import styles from './Footer.module.css';
 
@@ -11,14 +12,12 @@ export const Footer = () => {
       <div className={`container ${styles.grid}`}>
         <div className={styles.brandCol}>
           <div className={styles.logo}>
-            <img 
+            <Image 
               src="/images/logo.png" 
               alt={siteConfig.name} 
+              width={160}
+              height={60}
               className={styles.logoImage}
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-                e.currentTarget.parentElement?.classList.add(styles.textFallback);
-              }}
             />
             <h3 className={styles.fallbackText}>{siteConfig.name}</h3>
           </div>

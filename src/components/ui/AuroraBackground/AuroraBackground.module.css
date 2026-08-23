@@ -48,9 +48,40 @@
     transform: translate(0, 0) scale(1);
   }
   50% {
-    transform: translate(5%, 10%) scale(1.1);
+    transform: translate(5%, 5%) scale(1.05);
   }
   100% {
     transform: translate(-5%, -5%) scale(0.95);
+  }
+}
+
+@media (max-width: 768px) {
+  .auroraContainer {
+    filter: blur(60px);
+    opacity: 0.85; /* Increased opacity on mobile for more glow */
+  }
+
+  .aurora1 {
+    width: 100vw;
+    height: 100vw;
+    top: -5%;
+    left: -20%;
+    background: rgba(16, 185, 129, 0.4);
+  }
+
+  .aurora2 {
+    width: 120vw;
+    height: 120vw;
+    top: 30%;
+    right: -30%;
+    background: rgba(166, 217, 91, 0.35);
+  }
+
+  .aurora3 {
+    width: 140vw;
+    height: 140vw;
+    bottom: -10%;
+    left: -10%;
+    background: rgba(216, 250, 233, 0.5);
   }
 }

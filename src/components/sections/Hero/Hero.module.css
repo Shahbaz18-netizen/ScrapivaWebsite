@@ -28,6 +28,15 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  text-align: center; /* Center on mobile by default */
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .content {
+    text-align: left;
+    align-items: flex-start;
+  }
 }
 
 .eyebrow {
@@ -39,6 +48,17 @@
 
 .title {
   color: var(--color-dark);
+  font-weight: 800;
+}
+
+/* Glowing text gradient for mobile/desktop */
+@supports (background-clip: text) {
+  .title {
+    background: linear-gradient(135deg, #065f46 0%, #10b981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 20px rgba(16, 185, 129, 0.2);
+  }
 }
 
 .subtitle {
@@ -65,29 +85,33 @@
   align-items: flex-start;
   gap: 1.5rem;
   padding: 2rem;
-  background-color: var(--color-white);
-  border: 2px solid rgba(11, 93, 59, 0.1);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(16, 185, 129, 0.2);
   border-radius: var(--radius-xl);
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  text-align: left;
 }
 
 .gatewayCard:hover {
   transform: translateY(-8px);
-  border-color: var(--color-primary);
-  box-shadow: 0 20px 40px rgba(11, 93, 59, 0.12);
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 20px 50px rgba(16, 185, 129, 0.15), inset 0 0 0 2px rgba(16, 185, 129, 0.2);
 }
 
 .gatewayCardB2B {
-  background: linear-gradient(135deg, var(--color-dark) 0%, #1e293b 100%);
-  border: 2px solid transparent;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border: 1px solid rgba(166, 217, 91, 0.2);
   color: var(--color-white);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .gatewayCardB2B:hover {
   border-color: var(--color-accent);
-  box-shadow: 0 20px 40px rgba(166, 217, 91, 0.2);
+  box-shadow: 0 20px 50px rgba(166, 217, 91, 0.25), inset 0 0 0 2px rgba(166, 217, 91, 0.3);
 }
 
 .gatewayIcon {

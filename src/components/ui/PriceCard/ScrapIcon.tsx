@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 // ── Local photo map (generated images in /public/images/scrap/) ─────────────
 const localPhotos: Record<string, string> = {
@@ -670,15 +671,18 @@ export const ScrapIcon: React.FC<ScrapIconProps> = ({ id, category, className })
   const photoSrc = localPhotos[id];
   if (photoSrc) {
     return (
-      <img
+      <Image
         src={photoSrc}
         alt={id}
+        width={100}
+        height={100}
         className={className}
         style={{
           width: '100%',
           height: '100%',
           objectFit: 'contain',
-          borderRadius: '4px',
+          padding: '0.25rem',
+          borderRadius: '12px'
         }}
       />
     );

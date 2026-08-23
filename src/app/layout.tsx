@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar/Navbar";
 import { Footer } from "@/components/layout/Footer/Footer";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp/FloatingWhatsApp";
+import { BottomNav } from "@/components/layout/BottomNav/BottomNav";
 import { siteConfig } from "@/config/site";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -37,6 +38,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <FloatingWhatsApp />
+        <BottomNav />
       </body>
     </html>
   );
