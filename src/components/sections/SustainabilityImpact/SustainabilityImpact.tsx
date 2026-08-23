@@ -23,7 +23,7 @@ const CountUp = ({ to, duration = 1.5, suffix = '' }: { to: number; duration?: n
 
   useEffect(() => {
     if (isInView && !prefersReducedMotion) {
-      const controls = animate(count, to, { duration, ease: "easeOut" });
+      const controls = animate(count, to, { duration, ease: "easeOut" as any });
       return controls.stop;
     } else if (prefersReducedMotion) {
       count.set(to);
@@ -47,7 +47,7 @@ const cardVariants = {
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" }
+    transition: { duration: 0.5, ease: "easeOut" as any }
   }
 };
 
