@@ -13,9 +13,9 @@ export const BottomNav = () => {
 
   const navItems = [
     { href: '/', label: 'Home', icon: <Home size={24} /> },
-    { href: '/scrap-prices-siliguri', label: 'Prices', icon: <IndianRupee size={24} /> },
-    { href: '/book-pickup', label: 'Homes', icon: <PackageOpen size={24} /> },
-    { href: '/for-businesses', label: 'B2B', icon: <Building2 size={24} /> },
+    { href: '/scrap-prices-siliguri', label: 'Scrap Prices', icon: <IndianRupee size={24} /> },
+    { href: '/book-pickup', label: 'Households', icon: <PackageOpen size={24} /> },
+    { href: '/for-businesses', label: 'Businesses', icon: <Building2 size={24} /> },
   ];
 
   return (
