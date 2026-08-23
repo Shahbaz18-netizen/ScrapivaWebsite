@@ -28,11 +28,6 @@ export const businessFaqs = [
     answer: "Yes, we specialize in B2B scrap management for factories, IT parks, hotels, and retail stores in North Bengal. We can set up weekly or monthly recurring pickups based on your waste generation volume."
   },
   {
-    id: 2,
-    question: "Do you provide GST invoices and compliance certificates?",
-    answer: "Absolutely. For all our corporate clients, we provide proper GST billing and environmental sustainability certificates (Form 6) for responsible e-waste and metal recycling compliance."
-  },
-  {
     id: 3,
     question: "Can you handle bulk warehouse clearance or office dismantling?",
     answer: "Yes, our team is equipped to handle large-scale warehouse clearances, old office furniture dismantling, and bulk IT asset disposal. We provide the labor and transport required."

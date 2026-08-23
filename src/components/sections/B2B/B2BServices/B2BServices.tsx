@@ -17,14 +17,9 @@ export const B2BServices = () => {
     },
     { 
       icon: <IndianRupee size={32} />, 
-      title: "Instant GST-Compliant Payments", 
-      description: "No more chasing payments. We offer instant NEFT/RTGS settlements linked to market rates." 
-    },
-    { 
-      icon: <FileCheck size={32} />, 
-      title: "Environmental Compliance", 
-      description: "Receive formal documentation for your ISO/environmental audits proving responsible recycling." 
-    },
+      title: "Instant Transparent Payments", 
+      description: "No more chasing payments. We offer instant NEFT/UPI settlements linked to market rates." 
+    }
   ];
 
   return (
