@@ -1,0 +1,97 @@
+.section {
+  padding: 6rem 0;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.content h2 {
+  color: var(--color-white);
+}
+
+.description {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+.locations {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.locationItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon {
+  font-size: 1.5rem;
+  width: 48px;
+  height: 48px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.locationItem h4 {
+  color: var(--color-white);
+  font-size: 1.125rem;
+  margin-bottom: 0.25rem;
+}
+
+.locationItem p {
+  color: var(--color-accent);
+  font-size: 0.875rem;
+}
+
+.disclaimer {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+}
+
+.mapGraphic {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.3);
+  position: relative;
+  line-height: 0;
+}
+
+.mapImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  transition: transform 0.6s ease;
+}
+
+.mapGraphic:hover .mapImage {
+  transform: scale(1.02);
+}

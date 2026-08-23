@@ -1,0 +1,26 @@
+.hero {
+  padding: 4rem 0;
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroContent h1 {
+  color: var(--color-dark);
+  margin-bottom: 1rem;
+}
+
+.disclaimer {
+  display: inline-block;
+  background-color: rgba(11, 93, 59, 0.05);
+  color: var(--color-text);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  border: 1px solid rgba(11, 93, 59, 0.1);
+}

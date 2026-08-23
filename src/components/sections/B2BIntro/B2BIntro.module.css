@@ -1,0 +1,80 @@
+.b2bSection {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding: 6rem 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.eyebrow {
+  color: var(--color-accent);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+}
+
+.title {
+  color: var(--color-white);
+}
+
+.description {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+.ctaGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btnOutline {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--color-white);
+}
+
+.btnOutline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-white);
+}
+
+.imageWrapper {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.3);
+  position: relative;
+  line-height: 0;
+}
+
+.heroImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  transition: transform 0.6s ease;
+}
+
+.imageWrapper:hover .heroImage {
+  transform: scale(1.02);
+}

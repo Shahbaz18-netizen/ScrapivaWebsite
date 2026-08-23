@@ -1,0 +1,312 @@
+.header {
+  position: fixed; /* Fixed so it overlays on top of Hero */
+  top: 0;
+  width: 100%;
+  z-index: 200;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.headerScrolled {
+  background-color: rgba(255, 255, 255, 0.85); /* Frosty white */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  height: 72px; /* Shrinks slightly */
+}
+
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* ── Logo ───────────────────────────────────────────── */
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logoImage {
+  max-height: 55px;
+  width: auto;
+  object-fit: contain;
+}
+
+.fallbackText {
+  display: none;
+}
+
+.textFallback .fallbackText {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+}
+
+/* ── Desktop Nav ────────────────────────────────────── */
+.desktopNav {
+  display: none;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navLink {
+  font-weight: 500;
+  color: var(--color-text);
+  font-size: 0.9375rem;
+  transition: color var(--transition-fast);
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-fast);
+}
+
+.navLink:hover {
+  color: var(--color-primary);
+}
+
+.navLink:hover::after,
+.navLinkActive::after {
+  width: 100%;
+}
+
+.navLinkActive {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ── CTA Group ──────────────────────────────────────── */
+.ctaGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hideMobile {
+  display: none;
+}
+
+/* ── Hamburger Button ───────────────────────────────── */
+.mobileMenuBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+}
+
+.mobileMenuBtn:hover {
+  background-color: var(--color-border);
+}
+
+.bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--color-dark);
+  border-radius: var(--radius-full);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+/* ── Mobile Drawer Overlay ──────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(16, 35, 28, 0.55);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 300;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+}
+
+.overlayVisible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Mobile Drawer Panel ────────────────────────────── */
+.mobileDrawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100dvh;
+  width: min(320px, 85vw);
+  background-color: var(--color-white);
+  z-index: 400;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.12);
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+}
+
+.drawerOpen {
+  transform: translateX(0);
+}
+
+/* Drawer Header */
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.drawerBrand {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.01em;
+}
+
+.closeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  color: var(--color-muted);
+  transition: background var(--transition-fast), color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.closeBtn:hover {
+  background-color: var(--color-border);
+  color: var(--color-dark);
+}
+
+/* Drawer Links */
+.drawerLinks {
+  flex: 1;
+  padding: 0.75rem 0;
+}
+
+.drawerLinks li {
+  opacity: 0;
+  transform: translateX(16px);
+}
+
+.drawerOpen .drawerLinks li {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.3s ease calc(var(--i) * 60ms + 100ms),
+              transform 0.3s ease calc(var(--i) * 60ms + 100ms);
+}
+
+.drawerLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+  transition: background var(--transition-fast), color var(--transition-fast);
+  border-left: 3px solid transparent;
+}
+
+.drawerLink:hover {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  border-left-color: var(--color-accent);
+}
+
+.drawerLinkActive {
+  color: var(--color-primary);
+  font-weight: 600;
+  background-color: rgba(11, 93, 59, 0.05);
+  border-left-color: var(--color-primary);
+}
+
+.drawerArrow {
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+
+/* Drawer CTAs */
+.drawerCtas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.drawerCtas a {
+  display: block;
+}
+
+/* Drawer Footer */
+.drawerFooter {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.drawerContact {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  transition: color var(--transition-fast);
+}
+
+.drawerContact:hover {
+  color: var(--color-primary);
+}
+
+/* ── Responsive Breakpoints ─────────────────────────── */
+@media (min-width: 992px) {
+  .desktopNav {
+    display: flex;
+  }
+
+  .mobileMenuBtn {
+    display: none;
+  }
+
+  .hideMobile {
+    display: inline-flex;
+  }
+
+  /* Make sure drawer is inaccessible on desktop */
+  .mobileDrawer {
+    display: none;
+  }
+
+  .overlay {
+    display: none;
+  }
+}
