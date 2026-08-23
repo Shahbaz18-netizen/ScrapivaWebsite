@@ -6,6 +6,7 @@ import { B2BServices } from "@/components/sections/B2B/B2BServices/B2BServices";
 import { B2BGuarantee } from "@/components/sections/B2B/B2BGuarantee/B2BGuarantee";
 import { TrustStrip } from "@/components/sections/TrustStrip/TrustStrip";
 import { B2BLeadForm } from "@/components/sections/B2B/B2BLeadForm/B2BLeadForm";
+import { FAQ } from "@/components/sections/FAQ/FAQ";
 import { ScrollReveal } from "@/components/ui/ScrollReveal/ScrollReveal";
 import { Button } from "@/components/ui/Button/Button";
 import Link from "next/link";
@@ -68,6 +69,10 @@ export default function ForBusinesses() {
         <B2BGuarantee />
       </ScrollReveal>
       
+      <ScrollReveal>
+        <FAQ type="business" />
+      </ScrollReveal>
+
       <ScrollReveal>
         <B2BLeadForm />
       </ScrollReveal>

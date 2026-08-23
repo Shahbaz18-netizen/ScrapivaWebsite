@@ -6,6 +6,7 @@ import { PopularPrices } from "@/components/sections/PopularPrices/PopularPrices
 import { Testimonials } from "@/components/sections/Testimonials/Testimonials";
 import { ServiceArea } from "@/components/sections/ServiceArea/ServiceArea";
 import { SustainabilityImpact } from "@/components/sections/SustainabilityImpact/SustainabilityImpact";
+import { FAQ } from "@/components/sections/FAQ/FAQ";
 import { Button } from "@/components/ui/Button/Button";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
@@ -112,6 +113,8 @@ export default function Home() {
       <ScrollReveal>
         <ServiceArea />
       </ScrollReveal>
+
+      <FAQ type="general" />
       
       {/* Final CTA */}
       <ScrollReveal>
