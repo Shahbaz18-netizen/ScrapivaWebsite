@@ -3,13 +3,13 @@ import { TrustStrip } from "@/components/sections/TrustStrip/TrustStrip";
 import { B2BIntro } from "@/components/sections/B2BIntro/B2BIntro";
 import { B2CIntro } from "@/components/sections/B2CIntro/B2CIntro";
 import { PopularPrices } from "@/components/sections/PopularPrices/PopularPrices";
-import { Gallery } from "@/components/sections/Gallery/Gallery";
 import { Testimonials } from "@/components/sections/Testimonials/Testimonials";
 import { ServiceArea } from "@/components/sections/ServiceArea/ServiceArea";
 import { SustainabilityImpact } from "@/components/sections/SustainabilityImpact/SustainabilityImpact";
 import { Button } from "@/components/ui/Button/Button";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
+import { AuroraBackground } from "@/components/ui/AuroraBackground/AuroraBackground";
 import styles from "./page.module.css";
 import type { Metadata } from "next";
 
@@ -82,17 +82,18 @@ export default function Home() {
       />
       <Hero />
       <TrustStrip />
+      <SustainabilityImpact />
+      
       <B2BIntro />
       {/* TODO: Add B2B Industries, Materials, Services later or on B2B page */}
       <B2CIntro />
       <PopularPrices />
-      <Gallery />
       <Testimonials />
       <ServiceArea />
-      <SustainabilityImpact />
       
       {/* Final CTA */}
       <section className={styles.finalCta}>
+        <AuroraBackground />
         <div className="container">
           <div className={styles.ctaContent}>
             <h2>Ready to Give Your Scrap a Better Route?</h2>

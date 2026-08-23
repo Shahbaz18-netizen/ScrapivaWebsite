@@ -1,17 +1,21 @@
 .hero {
-  padding: 6rem 0;
-  background-color: var(--color-dark);
-  color: var(--color-white);
+  padding: 8rem 0 6rem;
+  background: linear-gradient(to bottom, var(--color-background), var(--color-white));
+  color: var(--color-dark);
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .heroContent {
   max-width: 800px;
   margin: 0 auto;
+  position: relative;
+  z-index: 10;
 }
 
 .eyebrow {
-  color: var(--color-accent);
+  color: var(--color-primary);
   font-weight: 700;
   letter-spacing: 0.1em;
   font-size: 0.875rem;
@@ -19,12 +23,17 @@
 }
 
 .title {
-  color: var(--color-white);
+  color: var(--color-dark);
   margin-bottom: 1.5rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .description {
+  color: var(--color-muted);
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
 }

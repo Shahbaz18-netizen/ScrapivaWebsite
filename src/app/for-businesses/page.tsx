@@ -1,8 +1,10 @@
 import { siteConfig } from "@/config/site";
+import { AuroraBackground } from "@/components/ui/AuroraBackground/AuroraBackground";
+import { B2BPainPoints } from "@/components/sections/B2B/B2BPainPoints/B2BPainPoints";
 import { B2BIndustries } from "@/components/sections/B2B/B2BIndustries/B2BIndustries";
-import { B2BMaterials } from "@/components/sections/B2B/B2BMaterials/B2BMaterials";
 import { B2BServices } from "@/components/sections/B2B/B2BServices/B2BServices";
-import { B2BHowItWorks } from "@/components/sections/B2B/B2BHowItWorks/B2BHowItWorks";
+import { B2BGuarantee } from "@/components/sections/B2B/B2BGuarantee/B2BGuarantee";
+import { TrustStrip } from "@/components/sections/TrustStrip/TrustStrip";
 import { B2BLeadForm } from "@/components/sections/B2B/B2BLeadForm/B2BLeadForm";
 import styles from "./page.module.css";
 import type { Metadata } from "next";
@@ -24,21 +26,23 @@ export default function ForBusinesses() {
   return (
     <>
       <section className={styles.hero}>
+        <AuroraBackground />
         <div className="container">
           <div className={styles.heroContent}>
-            <p className={styles.eyebrow}>FOR BUSINESSES</p>
-            <h1 className={styles.title}>Your Scrap. Our Responsibility.</h1>
+            <p className={styles.eyebrow}>B2B SCRAP MANAGEMENT</p>
+            <h1 className={styles.title}>Turn Your Business Scrap Into Instant Revenue—Without Lifting A Finger.</h1>
             <p className={styles.description}>
-              Businesses generate valuable recyclable materials every day. Scrapiva helps organizations simplify scrap collection, valuation and recycling through a reliable pickup network.
+              Stop dealing with unreliable vendors and unfair pricing. We handle the heavy lifting, provide 100% transparent weighing, and pay you instantly.
             </p>
           </div>
         </div>
       </section>
 
-      <B2BIndustries />
-      <B2BMaterials />
+      <B2BPainPoints />
       <B2BServices />
-      <B2BHowItWorks />
+      <B2BIndustries />
+      <TrustStrip />
+      <B2BGuarantee />
       <B2BLeadForm />
     </>
   );

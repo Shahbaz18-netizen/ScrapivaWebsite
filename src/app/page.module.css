@@ -2,11 +2,15 @@
   padding: 6rem 0;
   background-color: var(--color-background);
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .ctaContent {
   max-width: 800px;
   margin: 0 auto;
+  position: relative;
+  z-index: 10;
 }
 
 .ctaContent h2 {

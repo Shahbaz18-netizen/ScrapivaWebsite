@@ -96,17 +96,21 @@ export const B2BLeadForm = () => {
     <section id="quote" className={styles.section}>
       <div className={`container ${styles.grid}`}>
         <div className={styles.content}>
-          <h2>Let's Talk About Your Scrap</h2>
-          <p>Tell us what you generate and we'll get back to you with the next steps.</p>
+          <h2>Claim Your Free Scrap Valuation & Logistics Assessment</h2>
+          <p>Stop leaving money on the table. Fill out the form below and our B2B experts will reach out with a custom plan for your facility.</p>
           
           <div className={styles.pricingMessage}>
-            <h4>Commercial Scrap Pricing</h4>
-            <p>Prices depend on material, quantity, quality and prevailing market rates.</p>
+            <h4>Zero Obligation Quote</h4>
+            <p>Get a precise estimate based on your material type, volume, and current market index.</p>
           </div>
         </div>
         
         <Card variant="elevated" className={styles.formCard}>
-          <form onSubmit={handleSubmit} className={styles.form}>
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            window.open(whatsappUrl, '_blank');
+            setIsSubmitted(true);
+          }} className={styles.form}>
             <div className={styles.formRow}>
               <Input 
                 label="Company Name" 
@@ -200,8 +204,8 @@ export const B2BLeadForm = () => {
               />
             </div>
             
-            <Button type="submit" variant="primary" size="lg" fullWidth disabled={isLoading}>
-              {isLoading ? 'Submitting...' : 'Request Free Scrap Assessment'}
+            <Button type="submit" variant="whatsapp" size="lg" fullWidth>
+              Get My Free Assessment via WhatsApp
             </Button>
           </form>
         </Card>

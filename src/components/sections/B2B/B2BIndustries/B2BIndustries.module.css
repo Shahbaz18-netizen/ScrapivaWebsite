@@ -46,8 +46,8 @@
 .card {
   padding: 1.5rem;
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  align-items: flex-start;
+  gap: 1rem;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
@@ -57,18 +57,31 @@
   border-color: var(--color-primary);
 }
 
-.icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+.iconWrapper {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--color-primary);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.card h4 {
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.content h4 {
   font-size: 1.125rem;
   color: var(--color-dark);
 }
 
-.card p {
-  font-size: 0.875rem;
-  color: var(--color-text);
+.content p {
+  font-size: 0.9375rem;
+  color: var(--color-muted);
   line-height: 1.5;
 }

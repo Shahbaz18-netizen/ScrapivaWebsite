@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from 'react';
 import { Truck, Layers, Factory, Leaf } from 'lucide-react';
 import { motion, useInView, useMotionValue, useTransform, animate, useReducedMotion } from 'framer-motion';
 import { Reveal } from '@/components/ui/Reveal/Reveal';
+import { AuroraBackground } from '@/components/ui/AuroraBackground/AuroraBackground';
 import styles from './SustainabilityImpact.module.css';
 
 // A helper component to count up to a number when it scrolls into view
@@ -56,6 +57,7 @@ export const SustainabilityImpact = () => {
 
   return (
     <section className={styles.section}>
+      <AuroraBackground />
       <div className={styles.container}>
         <Reveal>
           <div className={styles.header}>

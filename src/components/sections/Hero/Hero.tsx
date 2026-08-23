@@ -2,19 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button/Button';
 import { siteConfig } from '@/config/site';
-import { Leaf, Box, Recycle, Coins } from 'lucide-react';
+import { AuroraBackground } from '@/components/ui/AuroraBackground/AuroraBackground';
 import styles from './Hero.module.css';
 
 export const Hero = () => {
   return (
     <section className={styles.hero}>
-      {/* Decorative Floating Elements */}
-      <div className={styles.floatingElements} aria-hidden="true">
-        <div className={`${styles.floatItem} ${styles.float1}`}><Coins className={styles.floatIcon} /></div>
-        <div className={`${styles.floatItem} ${styles.float2}`}><Leaf className={styles.floatIcon} /></div>
-        <div className={`${styles.floatItem} ${styles.float3}`}><Box className={styles.floatIcon} /></div>
-        <div className={`${styles.floatItem} ${styles.float4}`}><Recycle className={styles.floatIcon} /></div>
-      </div>
+      {/* Aurora Ambient Background */}
+      <AuroraBackground />
 
       <div className={`container ${styles.grid} ${styles.heroContent}`}>
         <div className={styles.content}>

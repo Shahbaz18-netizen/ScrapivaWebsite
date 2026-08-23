@@ -191,23 +191,17 @@ export default function BookPickup() {
         {step === 4 && (
           <form onSubmit={(e) => {
             e.preventDefault();
+            window.open(whatsappUrl, '_blank');
             setStep(5);
           }}>
             <h3>Choose a preferred pickup date</h3>
             <div className={styles.inputGroup}>
               <Input label="Date" type="date" required value={date} onChange={(e) => setDate(e.target.value)} />
             </div>
-            
-            <div style={{ padding: '1rem', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', marginTop: '2rem', marginBottom: '1rem' }}>
-              <p style={{ fontSize: '0.875rem', color: 'var(--color-muted)' }}><strong>Fast Track:</strong> Want to skip the web form process? You can book this directly via WhatsApp with all details pre-filled.</p>
-              <a href={whatsappUrl} target="_blank" rel="noreferrer" style={{ display: 'block', marginTop: '1rem' }}>
-                <Button type="button" variant="whatsapp" fullWidth>Book via WhatsApp instead</Button>
-              </a>
-            </div>
 
-            <div className={styles.buttonGroup}>
+            <div className={styles.buttonGroup} style={{ marginTop: '2rem' }}>
               <Button type="button" variant="outline" onClick={() => setStep(3)}>Back</Button>
-              <Button type="submit" variant="primary">Submit Request</Button>
+              <Button type="submit" variant="whatsapp">Confirm on WhatsApp</Button>
             </div>
           </form>
         )}
