@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, PackageOpen, Building2, MessageCircle } from 'lucide-react';
+import { Home, PackageOpen, Building2, MessageCircle, IndianRupee } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 import styles from './BottomNav.module.css';
 
@@ -13,6 +13,7 @@ export const BottomNav = () => {
 
   const navItems = [
     { href: '/', label: 'Home', icon: <Home size={24} /> },
+    { href: '/scrap-prices-siliguri', label: 'Prices', icon: <IndianRupee size={24} /> },
     { href: '/book-pickup', label: 'Homes', icon: <PackageOpen size={24} /> },
     { href: '/for-businesses', label: 'B2B', icon: <Building2 size={24} /> },
   ];

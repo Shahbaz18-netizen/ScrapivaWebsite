@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/Button/Button";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { AuroraBackground } from "@/components/ui/AuroraBackground/AuroraBackground";
+import { ScrollReveal } from "@/components/ui/ScrollReveal/ScrollReveal";
 import styles from "./page.module.css";
 import type { Metadata } from "next";
 
@@ -80,24 +81,46 @@ export default function Home() {
           })
         }}
       />
-      <Hero />
-      <TrustStrip />
-      <SustainabilityImpact />
+      <ScrollReveal duration={0.8} yOffset={20}>
+        <Hero />
+      </ScrollReveal>
+
+      <ScrollReveal delay={0.2}>
+        <TrustStrip />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <PopularPrices />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <SustainabilityImpact />
+      </ScrollReveal>
       
-      <B2BIntro />
-      {/* TODO: Add B2B Industries, Materials, Services later or on B2B page */}
-      <B2CIntro />
-      <PopularPrices />
-      <Testimonials />
-      <ServiceArea />
+      <ScrollReveal>
+        <B2BIntro />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <B2CIntro />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <Testimonials />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <ServiceArea />
+      </ScrollReveal>
       
       {/* Final CTA */}
-      <section className={styles.finalCta}>
-        <AuroraBackground />
-        <div className="container">
-          <div className={styles.ctaContent}>
-            <h2>Ready to Give Your Scrap a Better Route?</h2>
-            <p className={styles.ctaSubtitle}>Serving {siteConfig.locations.primary}, {siteConfig.locations.region}</p>
+      <ScrollReveal>
+        <section className={styles.finalCta}>
+          <AuroraBackground />
+          <div className="container">
+            <div className={styles.ctaContent}>
+              <h2>Ready to Give Your Scrap a Better Route?</h2>
+              <p className={styles.ctaSubtitle}>Serving {siteConfig.locations.primary}, {siteConfig.locations.region}</p>
             
             <div className={styles.ctaCards}>
               <div className={styles.ctaCard}>
@@ -118,6 +141,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
     </>
   );
 }

@@ -6,6 +6,9 @@ import { B2BServices } from "@/components/sections/B2B/B2BServices/B2BServices";
 import { B2BGuarantee } from "@/components/sections/B2B/B2BGuarantee/B2BGuarantee";
 import { TrustStrip } from "@/components/sections/TrustStrip/TrustStrip";
 import { B2BLeadForm } from "@/components/sections/B2B/B2BLeadForm/B2BLeadForm";
+import { ScrollReveal } from "@/components/ui/ScrollReveal/ScrollReveal";
+import { Button } from "@/components/ui/Button/Button";
+import Link from "next/link";
 import styles from "./page.module.css";
 import type { Metadata } from "next";
 
@@ -25,25 +28,49 @@ export const metadata: Metadata = {
 export default function ForBusinesses() {
   return (
     <>
-      <section className={styles.hero}>
-        <AuroraBackground />
-        <div className="container">
-          <div className={styles.heroContent}>
-            <p className={styles.eyebrow}>B2B SCRAP MANAGEMENT</p>
-            <h1 className={styles.title}>Turn Your Business Scrap Into Instant Revenue—Without Lifting A Finger.</h1>
-            <p className={styles.description}>
-              Stop dealing with unreliable vendors and unfair pricing. We handle the heavy lifting, provide 100% transparent weighing, and pay you instantly.
-            </p>
+      <ScrollReveal duration={0.8} yOffset={20}>
+        <section className={styles.hero}>
+          <AuroraBackground />
+          <div className="container">
+            <div className={styles.heroContent}>
+              <p className={styles.eyebrow}>B2B SCRAP MANAGEMENT</p>
+              <h1 className={styles.title}>Turn Your Business Scrap Into Instant Revenue—Without Lifting A Finger.</h1>
+              <p className={styles.description}>
+                Stop dealing with unreliable vendors and unfair pricing. We handle the heavy lifting, provide 100% transparent weighing, and pay you instantly.
+              </p>
+              <div className={styles.heroCta}>
+                <Link href="#quote">
+                  <Button variant="primary" size="lg">Request Free Scrap Quote</Button>
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
-      <B2BPainPoints />
-      <B2BServices />
-      <B2BIndustries />
-      <TrustStrip />
-      <B2BGuarantee />
-      <B2BLeadForm />
+      <ScrollReveal delay={0.1}>
+        <B2BPainPoints />
+      </ScrollReveal>
+      
+      <ScrollReveal>
+        <B2BServices />
+      </ScrollReveal>
+      
+      <ScrollReveal>
+        <B2BIndustries />
+      </ScrollReveal>
+      
+      <ScrollReveal>
+        <TrustStrip />
+      </ScrollReveal>
+      
+      <ScrollReveal>
+        <B2BGuarantee />
+      </ScrollReveal>
+      
+      <ScrollReveal>
+        <B2BLeadForm />
+      </ScrollReveal>
     </>
   );
 }

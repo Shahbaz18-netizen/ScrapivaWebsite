@@ -112,7 +112,8 @@
     height: 28px;
   }
 
-  .tooltip {
-    display: none; /* hide tooltip on mobile — not needed */
+  /* Hide entirely on mobile because BottomNav has it */
+  .wrapper {
+    display: none;
   }
 }

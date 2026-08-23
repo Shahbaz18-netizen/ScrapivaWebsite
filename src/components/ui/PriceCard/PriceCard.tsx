@@ -17,11 +17,6 @@ interface PriceCardProps {
 export const PriceCard: React.FC<PriceCardProps> = ({ name, price, unit, category, id, isPopular }) => {
   return (
     <div className={styles.card}>
-      {/* Popular badge — top right */}
-      {isPopular && (
-        <span className={styles.popularBadge}>🔥 Popular</span>
-      )}
-
       {/* Name at the top — matching reference layout */}
       <div className={styles.nameSection}>
         <h3 className={styles.name}>{name}</h3>
@@ -29,6 +24,9 @@ export const PriceCard: React.FC<PriceCardProps> = ({ name, price, unit, categor
 
       {/* Large product image in center */}
       <div className={styles.imageSection}>
+        {isPopular && (
+          <span className={styles.popularBadge}>🔥 Popular</span>
+        )}
         <ScrapIcon id={id} category={category} className={styles.image} />
       </div>
 
