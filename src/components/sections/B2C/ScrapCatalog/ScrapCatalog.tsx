@@ -21,6 +21,18 @@ export const ScrapCatalog = () => {
     <section className={styles.section}>
       <div className="container">
         
+        <div style={{ backgroundColor: 'rgba(166, 217, 91, 0.15)', border: '1px solid var(--color-primary)', borderRadius: '12px', padding: '16px 24px', marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          <h3 style={{ margin: 0, color: 'var(--color-text)', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '1.125rem' }}>
+            <span style={{ fontSize: '1.25rem' }}>🏢</span> Are you a Business or Factory?
+          </h3>
+          <p style={{ margin: 0, color: 'var(--color-text-light)', fontSize: '0.95rem' }}>
+            The rates listed below are standard household rates for small quantities. For B2B partners and bulk industrial scrap, <strong>rates are significantly higher.</strong>
+          </p>
+          <div style={{ marginTop: '8px' }}>
+            <Link href="/b2b" style={{ color: 'var(--color-primary)', fontWeight: 600, textDecoration: 'underline' }}>View B2B Services &rarr;</Link>
+          </div>
+        </div>
+
         <div className={styles.controls}>
           <div className={styles.searchWrapper}>
             <input 

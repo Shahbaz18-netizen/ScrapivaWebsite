@@ -20,6 +20,17 @@ export const PopularPrices = () => {
             <h2>Today's Indicative Scrap Prices</h2>
             <p>Check indicative scrap prices in {siteConfig.locations.primary} before booking a pickup.</p>
           </div>
+          <div style={{ backgroundColor: 'rgba(166, 217, 91, 0.15)', border: '1px solid var(--color-primary)', borderRadius: '12px', padding: '16px 24px', margin: '0 auto 2.5rem auto', maxWidth: '800px', textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <h3 style={{ margin: 0, color: 'var(--color-text)', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '1.125rem' }}>
+              <span style={{ fontSize: '1.25rem' }}>🏢</span> Note for Businesses & Factories
+            </h3>
+            <p style={{ margin: 0, color: 'var(--color-text-light)', fontSize: '0.95rem' }}>
+              The prices shown are for household quantities. For B2B partners or bulk industrial scrap, <strong>rates are customized and significantly higher.</strong>
+            </p>
+            <div style={{ marginTop: '8px' }}>
+              <Link href="/b2b" style={{ color: 'var(--color-primary)', fontWeight: 600, textDecoration: 'underline' }}>View B2B Services &rarr;</Link>
+            </div>
+          </div>
         </Reveal>
         
         <div className={styles.grid}>
