@@ -24,11 +24,11 @@ export const scrapPrices: ScrapMaterial[] = [
   // PAPER
   { id: "newspaper", name: "Newspaper", category: "Paper Scrap", price: "14", unit: "kg", icon: Newspaper, isPopular: true },
   { id: "books", name: "Books", category: "Paper Scrap", price: "10", unit: "kg", icon: BookOpen, isPopular: true },
-  { id: "cartoon-gatta", name: "Cartoon/Gatta", category: "Paper Scrap", price: "10", unit: "kg", icon: Package, isPopular: true },
+  { id: "cartoon-gatta", name: "Cartoon/Gatta", category: "Paper Scrap", price: "8", unit: "kg", icon: Package, isPopular: true },
   { id: "magazine", name: "Magazine", category: "Paper Scrap", price: "11", unit: "kg", icon: BookOpen, isPopular: false },
 
   // METAL
-  { id: "iron", name: "Iron", category: "Metal Scraps", price: "26", unit: "kg", icon: Box, isPopular: true },
+  { id: "iron", name: "Iron", category: "Metal Scraps", price: "22", unit: "kg", icon: Box, isPopular: true },
   { id: "steel", name: "Steel", category: "Metal Scraps", price: "40", unit: "kg", icon: Box, isPopular: true },
   { id: "aluminium", name: "Aluminium", category: "Metal Scraps", price: "110", unit: "kg", icon: Cylinder, isPopular: true },
   { id: "copper", name: "Copper", category: "Metal Scraps", price: "400", unit: "kg", icon: Cable, isPopular: true },

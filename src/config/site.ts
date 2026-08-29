@@ -6,9 +6,9 @@ export const siteConfig = {
     region: "North Bengal & Sikkim",
   },
   contact: {
-    phone: "+91 XXXXX XXXXX",
-    whatsapp: "+91 XXXXX XXXXX",
-    email: "hello@scrapiva.com",
+    phone: "+91 79087 38686",
+    whatsapp: "+91 79087 38686",
+    email: "SCRAPIVA.INDIA@GMAIL.COM",
     address: "Siliguri, West Bengal, India",
     whatsappPreFillMessage: "Hello Scrapiva, I would like to enquire about scrap pickup.",
   },
