@@ -28,7 +28,7 @@ export const PopularPrices = () => {
               The prices shown are for household quantities. For B2B partners or bulk industrial scrap, <strong>rates are customized and significantly higher.</strong>
             </p>
             <div style={{ marginTop: '8px' }}>
-              <Link href="/b2b" style={{ color: 'var(--color-primary)', fontWeight: 600, textDecoration: 'underline' }}>View B2B Services &rarr;</Link>
+              <Link href="/for-businesses" style={{ color: 'var(--color-primary)', fontWeight: 600, textDecoration: 'underline' }}>View B2B Services &rarr;</Link>
             </div>
           </div>
         </Reveal>

@@ -29,7 +29,7 @@ export const ScrapCatalog = () => {
             The rates listed below are standard household rates for small quantities. For B2B partners and bulk industrial scrap, <strong>rates are significantly higher.</strong>
           </p>
           <div style={{ marginTop: '8px' }}>
-            <Link href="/b2b" style={{ color: 'var(--color-primary)', fontWeight: 600, textDecoration: 'underline' }}>View B2B Services &rarr;</Link>
+            <Link href="/for-businesses" style={{ color: 'var(--color-primary)', fontWeight: 600, textDecoration: 'underline' }}>View B2B Services &rarr;</Link>
           </div>
         </div>
 
