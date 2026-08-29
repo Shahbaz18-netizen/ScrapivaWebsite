@@ -31,8 +31,41 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "RecyclingCenter",
+    name: siteConfig.name,
+    description: siteConfig.description,
+    telephone: siteConfig.contact.phone,
+    email: siteConfig.contact.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.contact.address,
+      addressLocality: "Siliguri",
+      addressRegion: "West Bengal",
+      addressCountry: "IN"
+    },
+    areaServed: [
+      {
+        "@type": "City",
+        name: "Siliguri"
+      },
+      {
+        "@type": "State",
+        name: "Sikkim"
+      }
+    ],
+    priceRange: "$$"
+  };
+
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body>
         <Navbar />
         <main>{children}</main>
