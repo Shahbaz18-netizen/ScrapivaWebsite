@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
+    "Scrapiva",
+    "Scrapiva Siliguri",
     "Scrap Buyer in Siliguri",
     "Scrap dealer in Siliguri",
     "Scrap pickup Siliguri",
