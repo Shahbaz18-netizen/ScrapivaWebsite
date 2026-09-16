@@ -21,31 +21,34 @@ export interface ScrapMaterial {
 export const scrapCategories = ["All", "Paper Scrap", "Metal Scraps", "Plastic Scrap", "E-waste Scraps"];
 
 export const scrapPrices: ScrapMaterial[] = [
-  // PAPER
+  // HIGH-VALUE ANCHORS & E-WASTE
+  { id: "ac-copper-2", name: "AC Copper Wiring 2 Ton", category: "E-waste Scraps", price: "4500", unit: "piece", icon: AirVent, isPopular: true },
+  { id: "ac-copper-1.5", name: "AC Copper Wiring 1.5 Ton", category: "E-waste Scraps", price: "3500", unit: "piece", icon: AirVent, isPopular: true },
+  { id: "ac-copper-1", name: "AC Copper Wiring 1 Ton", category: "E-waste Scraps", price: "2500", unit: "piece", icon: AirVent, isPopular: true },
+  
+  // METAL SCRAPS
+  { id: "copper", name: "Copper", category: "Metal Scraps", price: "670", unit: "kg", icon: Cable, isPopular: true },
+  { id: "brass", name: "Brass", category: "Metal Scraps", price: "500", unit: "kg", icon: Coins, isPopular: true },
+  { id: "aluminium", name: "Aluminium", category: "Metal Scraps", price: "150", unit: "kg", icon: Cylinder, isPopular: true },
+  { id: "steel", name: "Steel", category: "Metal Scraps", price: "40", unit: "kg", icon: Box, isPopular: true },
+  { id: "heavy-iron", name: "Heavy Iron", category: "Metal Scraps", price: "25", unit: "kg", icon: Box, isPopular: true },
+  { id: "light-iron", name: "Light Iron", category: "Metal Scraps", price: "22", unit: "kg", icon: Box, isPopular: true },
+  { id: "tin", name: "Tin", category: "Metal Scraps", price: "16", unit: "kg", icon: Cylinder, isPopular: false },
+  { id: "copper-cable", name: "Copper Cable", category: "Metal Scraps", price: "60", unit: "kg", icon: Cable, isPopular: false },
+  { id: "aluminium-cable", name: "Aluminium Cable", category: "Metal Scraps", price: "25", unit: "kg", icon: Cable, isPopular: false },
+
+  // PAPER SCRAP
   { id: "newspaper", name: "Newspaper", category: "Paper Scrap", price: "12", unit: "kg", icon: Newspaper, isPopular: true },
   { id: "books", name: "Books", category: "Paper Scrap", price: "10", unit: "kg", icon: BookOpen, isPopular: true },
-  { id: "cartoon-gatta", name: "Cartoon/Gatta", category: "Paper Scrap", price: "8", unit: "kg", icon: Package, isPopular: true },
+  { id: "cartoon-gatta", name: "Cartoon/Gatta", category: "Paper Scrap", price: "10", unit: "kg", icon: Package, isPopular: true },
   { id: "magazine", name: "Magazine", category: "Paper Scrap", price: "11", unit: "kg", icon: BookOpen, isPopular: false },
 
-  // METAL
-  { id: "iron", name: "Iron", category: "Metal Scraps", price: "22", unit: "kg", icon: Box, isPopular: true },
-  { id: "steel", name: "Steel", category: "Metal Scraps", price: "40", unit: "kg", icon: Box, isPopular: true },
-  { id: "aluminium", name: "Aluminium", category: "Metal Scraps", price: "110", unit: "kg", icon: Cylinder, isPopular: true },
-  { id: "copper", name: "Copper", category: "Metal Scraps", price: "400", unit: "kg", icon: Cable, isPopular: true },
-  { id: "brass", name: "Brass", category: "Metal Scraps", price: "300", unit: "kg", icon: Coins, isPopular: false },
-  { id: "tin", name: "Tin", category: "Metal Scraps", price: "16", unit: "kg", icon: Cylinder, isPopular: false },
-  { id: "aluminium-cable", name: "Aluminium Cable", category: "Metal Scraps", price: "25", unit: "kg", icon: Cable, isPopular: false },
-  { id: "copper-cable", name: "Copper Cable", category: "Metal Scraps", price: "60", unit: "kg", icon: Cable, isPopular: false },
-
-  // PLASTIC
+  // PLASTIC SCRAP
   { id: "soft-plastic", name: "Soft Plastic", category: "Plastic Scrap", price: "12", unit: "kg", icon: Wine, isPopular: true },
   { id: "hard-plastic", name: "Hard Plastic", category: "Plastic Scrap", price: "3", unit: "kg", icon: Container, isPopular: false },
   { id: "mix-plastic", name: "Mix Plastic", category: "Plastic Scrap", price: "6", unit: "kg", icon: Trash2, isPopular: false },
 
-  // E-WASTE
-  { id: "ac-copper-1", name: "AC Copper Wiring 1 Ton", category: "E-waste Scraps", price: "2000", unit: "piece", icon: AirVent, isPopular: false },
-  { id: "ac-copper-1.5", name: "AC Copper Wiring 1.5 Ton", category: "E-waste Scraps", price: "3000", unit: "piece", icon: AirVent, isPopular: false },
-  { id: "ac-copper-2", name: "AC Copper Wiring 2 Ton", category: "E-waste Scraps", price: "4000", unit: "piece", icon: AirVent, isPopular: false },
+  // OTHER E-WASTE
   { id: "ac-aluminium-1", name: "AC Aluminium Wiring 1 Ton", category: "E-waste Scraps", price: "1800", unit: "piece", icon: AirVent, isPopular: false },
   { id: "ac-aluminium-1.5", name: "AC Aluminium Wiring 1.5 Ton", category: "E-waste Scraps", price: "2800", unit: "piece", icon: AirVent, isPopular: false },
   { id: "ac-aluminium-2", name: "AC Aluminium Wiring 2 Ton", category: "E-waste Scraps", price: "3200", unit: "piece", icon: AirVent, isPopular: false },
@@ -55,7 +58,7 @@ export const scrapPrices: ScrapMaterial[] = [
   { id: "washing-machine-cu", name: "Washing Machine (Cu Wiring)", category: "E-waste Scraps", price: "600", unit: "piece", icon: Zap, isPopular: false },
   { id: "microwave", name: "Microwave", category: "E-waste Scraps", price: "200", unit: "piece", icon: Microwave, isPopular: false },
   { id: "fan", name: "Fan", category: "E-waste Scraps", price: "25", unit: "kg", icon: Fan, isPopular: false },
-  { id: "motor", name: "Motor", category: "E-waste Scraps", price: "30", unit: "kg", icon: Settings, isPopular: false },
+  { id: "motor", name: "Motor", category: "E-waste Scraps", price: "40", unit: "kg", icon: Settings, isPopular: false },
   { id: "inverter-wiring", name: "Inverter Copper Wiring", category: "E-waste Scraps", price: "40", unit: "kg", icon: Cable, isPopular: false },
   { id: "black-battery", name: "Black Battery", category: "E-waste Scraps", price: "70", unit: "kg", icon: Battery, isPopular: true },
   { id: "white-battery", name: "White Battery", category: "E-waste Scraps", price: "80", unit: "kg", icon: Battery, isPopular: false },

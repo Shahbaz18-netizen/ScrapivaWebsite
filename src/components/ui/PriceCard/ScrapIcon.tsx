@@ -11,6 +11,8 @@ const localPhotos: Record<string, string> = {
 
   // Metals — AI generated
   'iron':             '/images/scrap/iron.jpg',
+  'heavy-iron':       '/images/scrap/iron.jpg',
+  'light-iron':       '/images/scrap/iron.jpg',
   'steel':            '/images/scrap/steel.jpg',
 
   // Metals — user provided real photos

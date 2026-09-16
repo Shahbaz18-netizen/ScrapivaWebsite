@@ -24,9 +24,13 @@ export const PriceCard: React.FC<PriceCardProps> = ({ name, price, unit, categor
 
       {/* Large product image in center */}
       <div className={styles.imageSection}>
-        {isPopular && (
+        {Number(price) >= 500 ? (
+          <span className={styles.popularBadge} style={{ background: 'linear-gradient(135deg, #FEF3C7, #FDE68A)', color: '#92400E', borderColor: '#F59E0B' }}>
+            ⚡ High Payout
+          </span>
+        ) : isPopular ? (
           <span className={styles.popularBadge}>🔥 Popular</span>
-        )}
+        ) : null}
         <ScrapIcon id={id} category={category} className={styles.image} />
       </div>
 
