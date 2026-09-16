@@ -54,7 +54,6 @@ export const Footer = () => {
             <li><Link href="/contact">Contact</Link></li>
             <li><Link href="/terms">Terms</Link></li>
             <li><Link href="/privacy-policy">Privacy Policy</Link></li>
-            <li><Link href="/generate-bill" style={{ opacity: 0.7 }}>Staff Bill Generator</Link></li>
           </ul>
         </div>
 
