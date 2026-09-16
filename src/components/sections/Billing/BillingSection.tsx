@@ -662,26 +662,27 @@ export const BillingSection: React.FC = () => {
               </div>
 
               {/* Itemized Table */}
-              <table className={styles.printTable}>
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Scrap Material</th>
-                    <th>Rate</th>
-                    <th>Weight / Qty</th>
-                    <th>Total (₹)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {currentBill.items.length === 0 ? (
+              <div className={styles.printTableWrapper}>
+                <table className={styles.printTable}>
+                  <thead>
                     <tr>
-                      <td colSpan={5} style={{ textAlign: "center", color: "#6b7280", padding: "1.5rem" }}>
-                        No scrap items added yet. Select items from builder.
-                      </td>
+                      <th>#</th>
+                      <th>Material</th>
+                      <th>Rate</th>
+                      <th>Qty</th>
+                      <th>Total (₹)</th>
                     </tr>
-                  ) : (
-                    currentBill.items.map((item, idx) => (
-                      <tr key={item.id}>
+                  </thead>
+                  <tbody>
+                    {currentBill.items.length === 0 ? (
+                      <tr>
+                        <td colSpan={5} style={{ textAlign: "center", color: "#6b7280", padding: "1rem" }}>
+                          No scrap items added yet. Select items from builder.
+                        </td>
+                      </tr>
+                    ) : (
+                      currentBill.items.map((item, idx) => (
+                        <tr key={item.id}>
                         <td>{idx + 1}</td>
                         <td>
                           <strong>{item.name}</strong>
@@ -717,6 +718,7 @@ export const BillingSection: React.FC = () => {
                   )}
                 </tbody>
               </table>
+            </div>
 
               {/* Invoice Footer Total */}
               <div className={styles.invoiceTotalSection}>
@@ -771,9 +773,9 @@ export const BillingSection: React.FC = () => {
                 type="button"
                 className={`${styles.exportBtn} ${styles.btnPng}`}
                 onClick={() => downloadBillAsImage("printable-invoice-card", currentBill.invoiceNumber)}
-                title="Download pixel-perfect image for WhatsApp sharing"
+                title="Download image for WhatsApp sharing"
               >
-                <ImageIcon size={16} /> Image (PNG)
+                <ImageIcon size={16} /> Image
               </button>
 
               <button
@@ -782,7 +784,7 @@ export const BillingSection: React.FC = () => {
                 onClick={() => downloadBillAsPDF("printable-invoice-card", currentBill.invoiceNumber)}
                 title="Download PDF document"
               >
-                <FileText size={16} /> PDF Document
+                <FileText size={16} /> PDF
               </button>
 
               <button
