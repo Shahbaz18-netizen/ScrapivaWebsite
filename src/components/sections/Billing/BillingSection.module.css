@@ -265,12 +265,40 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 0.35rem;
+  position: relative;
 }
 
 .itemBtn:hover {
   background: rgba(16, 185, 129, 0.15);
   border-color: rgba(16, 185, 129, 0.4);
   transform: translateY(-2px);
+}
+
+.itemBtnActive {
+  background: rgba(16, 185, 129, 0.18) !important;
+  border-color: #10b981 !important;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.25);
+}
+
+.itemBtnTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.itemIcon {
+  color: #34d399;
+}
+
+.activeQtyBadge {
+  background: #10b981;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 0.15rem 0.4rem;
+  border-radius: 9999px;
+  white-space: nowrap;
 }
 
 .itemName {
@@ -284,6 +312,44 @@
   font-size: 0.8rem;
   color: #34d399;
   font-weight: 700;
+}
+
+/* Quick weight chips on mobile item cards */
+.quickChipsRow {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  padding: 0.4rem 0;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.quickChipsLabel {
+  font-size: 0.7rem;
+  color: #9ca3af;
+  font-weight: 600;
+  margin-right: 0.2rem;
+}
+
+.chipBtn {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.chipBtn:active {
+  background: #10b981;
+  color: #ffffff;
+  transform: scale(0.95);
 }
 
 /* Selected Items Table */

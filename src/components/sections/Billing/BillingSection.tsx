@@ -380,19 +380,33 @@ export const BillingSection: React.FC = () => {
 
               {/* Item Buttons Grid */}
               <div className={styles.itemGrid}>
-                {filteredPickerItems.map((item) => (
-                  <button
-                    key={item.id}
-                    type="button"
-                    className={styles.itemBtn}
-                    onClick={() => handleAddItem(item)}
-                  >
-                    <span className={styles.itemName}>{item.name}</span>
-                    <span className={styles.itemPriceTag}>
-                      ₹{item.price} /{item.unit}
-                    </span>
-                  </button>
-                ))}
+                {filteredPickerItems.map((item) => {
+                  const IconComp = item.icon || Sparkles;
+                  const activeItem = billItems.find((b) => b.id === item.id);
+                  const isSelected = Boolean(activeItem);
+
+                  return (
+                    <button
+                      key={item.id}
+                      type="button"
+                      className={`${styles.itemBtn} ${isSelected ? styles.itemBtnActive : ""}`}
+                      onClick={() => handleAddItem(item)}
+                    >
+                      <div className={styles.itemBtnTop}>
+                        <IconComp size={18} className={styles.itemIcon} />
+                        {isSelected && (
+                          <span className={styles.activeQtyBadge}>
+                            {activeItem?.quantity} {activeItem?.unit}
+                          </span>
+                        )}
+                      </div>
+                      <span className={styles.itemName}>{item.name}</span>
+                      <span className={styles.itemPriceTag}>
+                        ₹{item.price} /{item.unit}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -516,6 +530,26 @@ export const BillingSection: React.FC = () => {
                         >
                           <Trash2 size={16} />
                         </button>
+                      </div>
+
+                      {/* Quick Weight Chips */}
+                      <div className={styles.quickChipsRow}>
+                        <span className={styles.quickChipsLabel}>Quick Add Weight:</span>
+                        {[1, 5, 10, 20].map((addAmt) => (
+                          <button
+                            key={addAmt}
+                            type="button"
+                            className={styles.chipBtn}
+                            onClick={() =>
+                              handleQuantityChange(
+                                item.id,
+                                (Math.round((item.quantity + addAmt) * 10) / 10).toString()
+                              )
+                            }
+                          >
+                            +{addAmt} {item.unit}
+                          </button>
+                        ))}
                       </div>
 
                       <div className={styles.mobileItemCardBottom}>

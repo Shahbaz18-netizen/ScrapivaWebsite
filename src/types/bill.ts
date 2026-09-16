@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface ScrapMaterialRate {
   id: string;
   name: string;
@@ -5,6 +7,7 @@ export interface ScrapMaterialRate {
   price: string;
   unit: string;
   isPopular?: boolean;
+  icon?: React.ElementType;
 }
 
 export interface BillItem {
