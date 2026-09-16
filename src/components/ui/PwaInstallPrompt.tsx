@@ -1,15 +1,22 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Download, Smartphone, X } from "lucide-react";
 
 export const PwaInstallPrompt: React.FC = () => {
+  const pathname = usePathname();
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [showPrompt, setShowPrompt] = useState(false);
   const [isIos, setIsIos] = useState(false);
   const [showIosGuide, setShowIosGuide] = useState(false);
 
+  // Strictly limit app install prompt to staff billing routes ONLY
+  const isStaffRoute = pathname?.startsWith('/admin') || pathname === '/generate-bill';
+
   useEffect(() => {
+    if (!isStaffRoute) return;
+
     // Check if iOS device
     const userAgent = window.navigator.userAgent.toLowerCase();
     const isIosDevice = /iphone|ipad|ipod/.test(userAgent);
@@ -27,7 +34,7 @@ export const PwaInstallPrompt: React.FC = () => {
     return () => {
       window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
     };
-  }, []);
+  }, [isStaffRoute]);
 
   const handleInstallClick = async () => {
     if (deferredPrompt) {
@@ -42,7 +49,7 @@ export const PwaInstallPrompt: React.FC = () => {
     }
   };
 
-  if (!showPrompt && !isIos) return null;
+  if (!isStaffRoute || (!showPrompt && !isIos)) return null;
 
   return (
     <>

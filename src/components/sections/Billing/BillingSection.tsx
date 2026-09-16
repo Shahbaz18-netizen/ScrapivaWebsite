@@ -529,45 +529,6 @@ export const BillingSection: React.FC = () => {
 
           {/* RIGHT PANEL: Formatted Invoice Sheet & Export Controls */}
           <div className={styles.previewWrapper}>
-            {/* Quick Export Toolbar */}
-            <div className={styles.exportToolbar}>
-              <button
-                type="button"
-                className={`${styles.exportBtn} ${styles.btnPng}`}
-                onClick={() => downloadBillAsImage("printable-invoice-card", currentBill.invoiceNumber)}
-                title="Download pixel-perfect image for WhatsApp sharing"
-              >
-                <ImageIcon size={16} /> Image (PNG)
-              </button>
-
-              <button
-                type="button"
-                className={`${styles.exportBtn} ${styles.btnPdf}`}
-                onClick={() => downloadBillAsPDF("printable-invoice-card", currentBill.invoiceNumber)}
-                title="Download PDF document"
-              >
-                <FileText size={16} /> PDF Document
-              </button>
-
-              <button
-                type="button"
-                className={`${styles.exportBtn} ${styles.btnWhatsApp}`}
-                onClick={() => sendBillToWhatsApp(currentBill)}
-                title="Send bill directly to Customer WhatsApp"
-              >
-                <Share2 size={16} /> WhatsApp
-              </button>
-
-              <button
-                type="button"
-                className={`${styles.exportBtn} ${styles.btnPrint}`}
-                onClick={printBill}
-                title="Print receipt on physical printer"
-              >
-                <Printer size={16} /> Print
-              </button>
-            </div>
-
             {/* Printable Light-Theme Purchase Bill Invoice Card */}
             <div id="printable-invoice-card" className={styles.invoiceSheet}>
               {/* Header */}
@@ -712,6 +673,45 @@ export const BillingSection: React.FC = () => {
                   <span style={{ fontSize: "0.65rem", color: "#9ca3af" }}>Scrapiva Recycling</span>
                 </div>
               </div>
+            </div>
+
+            {/* Quick Export Toolbar (Placed directly below generated invoice bill) */}
+            <div className={styles.exportToolbar} style={{ marginTop: "1rem" }}>
+              <button
+                type="button"
+                className={`${styles.exportBtn} ${styles.btnPng}`}
+                onClick={() => downloadBillAsImage("printable-invoice-card", currentBill.invoiceNumber)}
+                title="Download pixel-perfect image for WhatsApp sharing"
+              >
+                <ImageIcon size={16} /> Image (PNG)
+              </button>
+
+              <button
+                type="button"
+                className={`${styles.exportBtn} ${styles.btnPdf}`}
+                onClick={() => downloadBillAsPDF("printable-invoice-card", currentBill.invoiceNumber)}
+                title="Download PDF document"
+              >
+                <FileText size={16} /> PDF Document
+              </button>
+
+              <button
+                type="button"
+                className={`${styles.exportBtn} ${styles.btnWhatsApp}`}
+                onClick={() => sendBillToWhatsApp(currentBill)}
+                title="Send bill directly to Customer WhatsApp"
+              >
+                <Share2 size={16} /> WhatsApp
+              </button>
+
+              <button
+                type="button"
+                className={`${styles.exportBtn} ${styles.btnPrint}`}
+                onClick={printBill}
+                title="Print receipt on physical printer"
+              >
+                <Printer size={16} /> Print
+              </button>
             </div>
           </div>
         </div>
