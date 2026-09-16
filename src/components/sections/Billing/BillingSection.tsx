@@ -396,33 +396,131 @@ export const BillingSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Selected Items Table */}
-            <div className={styles.selectedItemsTableWrapper}>
-              <table className={styles.builderTable}>
-                <thead>
-                  <tr>
-                    <th>Scrap Item</th>
-                    <th>Rate (₹)</th>
-                    <th>Qty / Weight</th>
-                    <th>Subtotal</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {billItems.length === 0 ? (
+            {/* Selected Items Table / Mobile Card List */}
+            <div className={styles.selectedItemsWrapper}>
+              {/* Desktop Table */}
+              <div className={styles.desktopTableOnly}>
+                <table className={styles.builderTable}>
+                  <thead>
                     <tr>
-                      <td colSpan={5} style={{ textAlign: "center", padding: "1.5rem", color: "#9ca3af" }}>
-                        Click scrap items above to add them to the bill.
-                      </td>
+                      <th>Scrap Item</th>
+                      <th>Rate (₹)</th>
+                      <th>Qty / Weight</th>
+                      <th>Subtotal</th>
+                      <th></th>
                     </tr>
-                  ) : (
-                    billItems.map((item) => (
-                      <tr key={item.id}>
-                        <td>
-                          <strong>{item.name}</strong>
-                          <div style={{ fontSize: "0.7rem", color: "#9ca3af" }}>{item.category}</div>
+                  </thead>
+                  <tbody>
+                    {billItems.length === 0 ? (
+                      <tr>
+                        <td colSpan={5} style={{ textAlign: "center", padding: "1.5rem", color: "#9ca3af" }}>
+                          Click scrap items above to add them to the bill.
                         </td>
-                        <td>
+                      </tr>
+                    ) : (
+                      billItems.map((item) => (
+                        <tr key={item.id}>
+                          <td>
+                            <strong>{item.name}</strong>
+                            <div style={{ fontSize: "0.7rem", color: "#9ca3af" }}>{item.category}</div>
+                          </td>
+                          <td>
+                            <input
+                              type="number"
+                              step="0.5"
+                              className={styles.rateInputInline}
+                              value={item.rate}
+                              onChange={(e) => handleRateChange(item.id, e.target.value)}
+                            />
+                            /{item.unit}
+                          </td>
+                          <td>
+                            <div className={styles.qtyControlWrapper}>
+                              <button
+                                type="button"
+                                className={styles.stepperBtn}
+                                onClick={() =>
+                                  handleQuantityChange(
+                                    item.id,
+                                    Math.max(0.1, Math.round((item.quantity - 1) * 10) / 10).toString()
+                                  )
+                                }
+                                title="Decrease quantity"
+                              >
+                                -
+                              </button>
+                              <input
+                                type="number"
+                                step="0.1"
+                                min="0.1"
+                                className={styles.qtyInput}
+                                value={item.quantity}
+                                onChange={(e) => handleQuantityChange(item.id, e.target.value)}
+                              />
+                              <button
+                                type="button"
+                                className={styles.stepperBtn}
+                                onClick={() =>
+                                  handleQuantityChange(
+                                    item.id,
+                                    (Math.round((item.quantity + 1) * 10) / 10).toString()
+                                  )
+                                }
+                                title="Increase quantity"
+                              >
+                                +
+                              </button>
+                            </div>
+                            <span className={styles.unitLabel}>{item.unit}</span>
+                          </td>
+                          <td>
+                            <strong style={{ color: "#34d399" }}>
+                              ₹{item.subtotal.toLocaleString("en-IN")}
+                            </strong>
+                          </td>
+                          <td>
+                            <button
+                              type="button"
+                              className={styles.deleteItemBtn}
+                              onClick={() => handleRemoveItem(item.id)}
+                              title="Remove line"
+                            >
+                              <Trash2 size={14} />
+                            </button>
+                          </td>
+                        </tr>
+                      ))
+                    )}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Mobile Card List View (Fits 100% on phone screens) */}
+              <div className={styles.mobileCardsOnly}>
+                {billItems.length === 0 ? (
+                  <div style={{ textAlign: "center", padding: "1.25rem", color: "#9ca3af", fontSize: "0.85rem" }}>
+                    Click scrap items above to add them to the bill.
+                  </div>
+                ) : (
+                  billItems.map((item) => (
+                    <div key={item.id} className={styles.mobileItemCardRow}>
+                      <div className={styles.mobileItemCardTop}>
+                        <div>
+                          <strong className={styles.mobileItemCardTitle}>{item.name}</strong>
+                          <span className={styles.mobileItemCardCategory}>{item.category}</span>
+                        </div>
+                        <button
+                          type="button"
+                          className={styles.deleteItemBtn}
+                          onClick={() => handleRemoveItem(item.id)}
+                        >
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
+
+                      <div className={styles.mobileItemCardBottom}>
+                        <div className={styles.mobileRateBox}>
+                          <label>Rate (₹):</label>
                           <input
                             type="number"
                             step="0.5"
@@ -430,9 +528,11 @@ export const BillingSection: React.FC = () => {
                             value={item.rate}
                             onChange={(e) => handleRateChange(item.id, e.target.value)}
                           />
-                          /{item.unit}
-                        </td>
-                        <td>
+                          <span>/{item.unit}</span>
+                        </div>
+
+                        <div className={styles.mobileQtyBox}>
+                          <label>Qty:</label>
                           <div className={styles.qtyControlWrapper}>
                             <button
                               type="button"
@@ -443,7 +543,6 @@ export const BillingSection: React.FC = () => {
                                   Math.max(0.1, Math.round((item.quantity - 1) * 10) / 10).toString()
                                 )
                               }
-                              title="Decrease quantity"
                             >
                               -
                             </button>
@@ -464,33 +563,24 @@ export const BillingSection: React.FC = () => {
                                   (Math.round((item.quantity + 1) * 10) / 10).toString()
                                 )
                               }
-                              title="Increase quantity"
                             >
                               +
                             </button>
                           </div>
                           <span className={styles.unitLabel}>{item.unit}</span>
-                        </td>
-                        <td>
-                          <strong style={{ color: "#34d399" }}>
+                        </div>
+
+                        <div className={styles.mobileSubtotalBox}>
+                          <label>Subtotal:</label>
+                          <strong style={{ color: "#34d399", fontSize: "0.95rem" }}>
                             ₹{item.subtotal.toLocaleString("en-IN")}
                           </strong>
-                        </td>
-                        <td>
-                          <button
-                            type="button"
-                            className={styles.deleteItemBtn}
-                            onClick={() => handleRemoveItem(item.id)}
-                            title="Remove line"
-                          >
-                            <Trash2 size={14} />
-                          </button>
-                        </td>
-                      </tr>
-                    ))
-                  )}
-                </tbody>
-              </table>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
             </div>
 
             {/* Form to Add Custom Manual Item */}

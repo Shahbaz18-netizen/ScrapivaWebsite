@@ -1007,10 +1007,80 @@
   margin-left: 0.25rem;
 }
 
+.desktopTableOnly {
+  display: block;
+}
+
+.mobileCardsOnly {
+  display: none;
+}
+
+.mobileItemCardRow {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0.75rem;
+  margin-bottom: 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.mobileItemCardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.mobileItemCardTitle {
+  font-size: 0.9rem;
+  color: #f3f4f6;
+  display: block;
+}
+
+.mobileItemCardCategory {
+  font-size: 0.7rem;
+  color: #9ca3af;
+}
+
+.mobileItemCardBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.mobileRateBox,
+.mobileQtyBox,
+.mobileSubtotalBox {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+}
+
+.mobileRateBox label,
+.mobileQtyBox label,
+.mobileSubtotalBox label {
+  font-size: 0.7rem;
+  color: #9ca3af;
+}
+
 /* MOBILE RESPONSIVE TWEAKS */
 @media (max-width: 640px) {
+  .desktopTableOnly {
+    display: none;
+  }
+
+  .mobileCardsOnly {
+    display: block;
+  }
+
   .billingWrapper {
-    padding: 1rem 0.75rem 3rem 0.75rem;
+    padding: 1rem 0.65rem 3rem 0.65rem;
   }
 
   .billingHeader {
@@ -1029,7 +1099,7 @@
   }
 
   .builderCard {
-    padding: 1rem;
+    padding: 0.85rem;
     border-radius: 12px;
   }
 
@@ -1067,8 +1137,23 @@
   }
 
   .invoiceSheet {
-    padding: 1.25rem 0.85rem;
-    border-radius: 12px;
+    padding: 1rem 0.65rem !important;
+    border-radius: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  .printTable {
+    width: 100% !important;
+    table-layout: fixed !important;
+    word-break: break-word !important;
+  }
+
+  .printTable th,
+  .printTable td {
+    padding: 0.45rem 0.2rem !important;
+    font-size: 0.75rem !important;
   }
 
   .customerMetaBox {
