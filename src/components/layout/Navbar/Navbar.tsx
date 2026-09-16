@@ -57,6 +57,11 @@ export const Navbar = () => {
     return () => { document.body.style.overflow = ''; };
   }, [isMenuOpen]);
 
+  // Hide site navbar on internal billing portal pages (AFTER ALL HOOKS)
+  if (pathname?.startsWith('/admin') || pathname === '/generate-bill') {
+    return null;
+  }
+
   return (
     <>
       <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''}`}>

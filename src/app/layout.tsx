@@ -7,6 +7,8 @@ import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp/FloatingW
 import { BottomNav } from "@/components/layout/BottomNav/BottomNav";
 import { siteConfig } from "@/config/site";
 
+import { PwaInstallPrompt } from "@/components/ui/PwaInstallPrompt";
+
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
@@ -15,6 +17,12 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Scrapiva",
+  },
   keywords: [
     "Scrapiva",
     "Scrapiva Siliguri",
@@ -74,6 +82,7 @@ export default function RootLayout({
         <Footer />
         <FloatingWhatsApp />
         <BottomNav />
+        <PwaInstallPrompt />
       </body>
     </html>
   );

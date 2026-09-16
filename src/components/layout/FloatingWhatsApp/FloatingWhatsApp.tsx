@@ -2,9 +2,17 @@
 
 import React from 'react';
 import { siteConfig } from '@/config/site';
+import { usePathname } from 'next/navigation';
 import styles from './FloatingWhatsApp.module.css';
 
 export const FloatingWhatsApp = () => {
+  const pathname = usePathname();
+
+  // Hide floating WhatsApp button on internal billing portal pages
+  if (pathname?.startsWith('/admin') || pathname === '/generate-bill') {
+    return null;
+  }
+
   const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(siteConfig.contact.whatsappPreFillMessage)}`;
 
   return (

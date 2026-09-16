@@ -4,9 +4,17 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { siteConfig } from '@/config/site';
+import { usePathname } from 'next/navigation';
 import styles from './Footer.module.css';
 
 export const Footer = () => {
+  const pathname = usePathname();
+
+  // Hide site footer on internal billing portal pages
+  if (pathname?.startsWith('/admin') || pathname === '/generate-bill') {
+    return null;
+  }
+
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.grid}`}>
@@ -46,6 +54,7 @@ export const Footer = () => {
             <li><Link href="/contact">Contact</Link></li>
             <li><Link href="/terms">Terms</Link></li>
             <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+            <li><Link href="/generate-bill" style={{ opacity: 0.7 }}>Staff Bill Generator</Link></li>
           </ul>
         </div>
 

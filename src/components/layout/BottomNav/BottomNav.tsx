@@ -9,6 +9,12 @@ import styles from './BottomNav.module.css';
 
 export const BottomNav = () => {
   const pathname = usePathname();
+
+  // Hide mobile bottom nav on internal billing portal pages
+  if (pathname?.startsWith('/admin') || pathname === '/generate-bill') {
+    return null;
+  }
+
   const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}`;
 
   const navItems = [
